@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lists from CSV</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arvo|Source+Sans+Pro:400,400italic,700|Lato:300,400">
+  <link rel="stylesheet" href="css/unsemantic.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/demo.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/papaparse.js"></script>
+  <script src="js/demo.js"></script>
+  <script src="//api.bitrix24.com/api/v1/"></script>
+  
+  <meta http-equiv="Cache-control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+</head>
+<body>
+	<main>
+    <div class="grid-container">
+      <div class="grid-75 grid-parent">
+        <div class="grid-33 push-66">&nbsp;</div>
+
+        <div class="grid-66 pull-33">
+          <div class="input-area" style="display:block">
+            <div class="text-center">
+              <h4 style="margin-bottom:20px">Выберите тип списка</h4>
+            </div>
+            <table cellpadding="10"><tbody><tr>
+              <td style="width:300px">Тип списка:</td>
+              <td>
+                <select id="listType">
+                  <option value="lists">Общие списки</option>
+                  <option value="lists_socnet">Списки групп</option>
+                  <option value="bitrix_processes">Процессы</option>
+                </select>
+              </td>
+              </tr></tbody></table>
+            <div style="padding-top:30px;"></div>
+            
+            <span class="ifGroup" style="display:none;">
+              <div class="text-center">
+                <h4 style="margin-bottom:20px">Выберите группу</h4>
+              </div>
+              <table cellpadding="10"><tbody><tr>
+                <td style="width:300px">Группа:</td>
+                <td>
+                  <select class="groupList"></select>
+                </td>
+              </tr></tbody></table>	
+              <div style="padding-top:30px;"></div>								
+            </span>
+            
+            <div class="text-center">
+              <h4 style="margin-bottom:20px">Выберите список</h4>
+            </div>
+            <table cellpadding="10"><tbody><tr>
+              <td style="width:300px">Список:</td>
+              <td>
+                <select id="listID"></select>
+              </td>
+            </tr></tbody></table>
+          </div>
+          
+          <div class="input-area" id="input-local" style="display:block">
+          
+            <div style="padding-top:30px; display:none;" class="fileselect">
+              <div class="text-center">
+                <h4 style="margin-bottom:20px">Выберите файл для загрузки</h4>
+              </div>
+              
+              <input type="file" id="files" multiple="">
+            </div>
+            
+            <div style="padding-top:30px; display:none;" class="fieldsselect">
+              <div style="padding-top:30px;"></div>
+              
+              <div>
+                <h4 style="margin-bottom:20px">Соответствие полей</h4>
+                <div class="tableRows"></div>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="text-center buttonupload" style="display:none;">
+            <button id="submit" class="green">Загрузить</button>
+            <br><br>
+            <div class="text-center" id="counter-upl"></div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+	</main>
+	
+</body>
+</html>
